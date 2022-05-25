@@ -1,8 +1,10 @@
 class MyModal extends HTMLElement {
+  self = null;
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
     this.render();
+    self = this;
   }
 
   render() {
@@ -37,11 +39,11 @@ class MyModal extends HTMLElement {
   }
 
   open() {
-    this.shadowRoot.querySelector(".modal").style.display = "flex";
+    self.shadowRoot.querySelector(".modal").style.display = "flex";
   }
 
   close() {
-    this.shadowRoot.querySelector(".modal").style.display = "none";
+    self.shadowRoot.querySelector(".modal").style.display = "none";
   }
 }
 
